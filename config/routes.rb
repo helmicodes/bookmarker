@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   get "signin" => "sessions#new"
 
-  resources :links, as: "saves"
+  resources :links
 end
