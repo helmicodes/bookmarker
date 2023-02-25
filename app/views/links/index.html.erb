@@ -4,7 +4,8 @@
 
 <div id="links">
   <% @links.each do |link| %>
-    <%= render link %>
+    <%= link_title(link.url) %>
+    <img src="<%= link_image_url(link.url) %>" alt="Image Preview">
     <p>
       <%= link_to "Show this link", link %>
     </p>
