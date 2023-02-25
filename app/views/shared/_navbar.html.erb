@@ -12,7 +12,12 @@
       </nav>
 
       <div class="flex items-center gap-4">
-        <div class="sm:flex sm:gap-4">
+        <% if signed_in? %>
+          <div class="sm:flex sm:gap-4">
+            <%= button_to "Logout", session_path, method: :delete, class: "hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block" %>
+          </div>
+        <% else %>
+          <div class="sm:flex sm:gap-4">
           <a
             class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
             href="/signin"
@@ -27,7 +32,7 @@
             Register
           </a>
         </div>
-
+        <% end %>
         <button
           class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
         >

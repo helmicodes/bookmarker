@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :require_signin
   before_action :set_link, only: %i[ show edit update destroy ]
 
   # GET /links or /links.json
