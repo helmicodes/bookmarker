@@ -2,20 +2,22 @@
 
 <h1>Links</h1>
 
-<div class="h-screen flex items-center justify-center">
+<div class="h-screen flex items-center justify-center gap-x-3">
   <% @links.each do |link| %>
-    <div class="rounded-md w-72 min-h-[10rem] overflow-hidden">
+    <div class="rounded-md w-72 min-h-[10rem] overflow-hidden shadow-lg">
       <img
         alt="Home"
-        src="<%= link_image_url(link.url) %>"
-        class="h-56 w-full rounded-md object-cover" />
+        src="<%= link.image_url %>"
+        class="h-56 w-full object-cover" />
 
-      <div class="mt-2 font-medium">
-        <%= link_title(link.url) %>
-      </div>
+      <div class="p-4">
+        <div class="mt-2 font-medium">
+          <%= link.title %>
+        </div>
 
-      <div class="text-sm text-gray-500">
-        <%= link_host(link.url) %>
+        <div class="text-sm text-gray-500">
+          <%= link_host(link.url) %>
+        </div>
       </div>
     </div>
   <% end %>
