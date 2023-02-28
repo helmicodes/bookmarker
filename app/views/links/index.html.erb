@@ -2,6 +2,32 @@
 
 <h1>Links</h1>
 
+<div>
+  <div class="search">
+    <%= form_with(url: links_path, method: :get,
+                  data: {
+                    turbo_frame: "results",
+                    turbo_action: "advance",
+                    controller: "form",
+                    action: "input->form#submit"
+                  }) do |f| %>
+      <div>
+        <%= f.search_field :name, placeholder: 'Name...',
+                           value: params[:name] %>
+      </div>
+      <div>
+        <%= f.select :category, "",
+                     include_blank: "Any Category", selected: params[:category] %>
+      </div>
+      <div>
+        <%= f.select :sort,
+                     [["By Name", "name"], ["By Popularity", "tackle_box_items_count"]],
+                     include_blank: "Sort By", selected: params[:sort] %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="h-screen flex items-center justify-center gap-x-3">
   <% @links.each do |link| %>
     <div class="rounded-md w-72 min-h-[10rem] overflow-hidden shadow-lg">
