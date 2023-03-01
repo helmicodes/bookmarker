@@ -14,28 +14,6 @@
       <div class="flex items-center gap-4">
         <% if signed_in? %>
           <div class="sm:flex sm:gap-4">
-
-            <a
-              href="/account"
-              class="block border-b-4 border-transparent p-6 hover:border-red-700"
-            >
-              <svg
-                class="h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-              </svg>
-
-              <span class="sr-only"> Account </span>
-            </a>
             <%= button_to "Logout", session_path, method: :delete, class: "hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block" %>
           </div>
         <% else %>

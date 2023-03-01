@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Links</h1>
+<%= link_to "New link", new_link_path %>
 
-<div>
-  <div class="search">
+<div class="flex justify-center m-4">
+  <div class="inline-block">
     <%= form_with(url: links_path, method: :get,
                   data: {
                     turbo_frame: "results",
@@ -11,42 +11,36 @@
                     controller: "form",
                     action: "input->form#submit"
                   }) do |f| %>
-      <div>
-        <%= f.search_field :name, placeholder: 'Name...',
-                           value: params[:name] %>
-      </div>
-      <div>
-        <%= f.select :category, "",
-                     include_blank: "Any Category", selected: params[:category] %>
-      </div>
-      <div>
-        <%= f.select :sort,
-                     [["By Name", "name"], ["By Popularity", "tackle_box_items_count"]],
-                     include_blank: "Sort By", selected: params[:sort] %>
-      </div>
+
+      <%= f.search_field :name, placeholder: 'Search', value: params[:name],
+                           class: "" %>
+
+
+      <%= f.select :category, "", include_blank: "Any Category", selected: params[:category],
+                   class: "" %>
     <% end %>
   </div>
 </div>
 
-<div class="h-screen flex items-center justify-center gap-x-3">
-  <% @links.each do |link| %>
-    <div class="rounded-md w-72 min-h-[10rem] overflow-hidden shadow-lg">
-      <img
-        alt="Home"
-        src="<%= link.image_url %>"
-        class="h-56 w-full object-cover" />
+<div class="h-screen flex items-center justify-center">
+  <div class="grid grid-cols-3 gap-4">
+    <% @links.each do |link| %>
+      <div class="rounded-md w-72 min-h-[10rem] overflow-hidden shadow-lg">
+        <img
+          alt="Home"
+          src="<%= link.image_url %>"
+          class="h-56 w-full object-cover" />
 
-      <div class="p-4">
-        <div class="mt-2 font-medium">
-          <%= link.title %>
-        </div>
+        <div class="p-4">
+          <div class="mt-2 font-medium">
+            <%= link.title %>
+          </div>
 
-        <div class="text-sm text-gray-500">
-          <%= link_host(link.url) %>
+          <div class="text-sm text-gray-500">
+            <%= link_host(link.url) %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New link", new_link_path %>
