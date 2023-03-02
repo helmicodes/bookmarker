@@ -19,38 +19,41 @@
                     action: "input->form#submit"
                   }) do |f| %>
 
-      <%= f.search_field :name, placeholder: 'Search', value: params[:name],
+      <%= f.search_field :title, placeholder: 'Search', value: params[:title],
                            class: "" %>
 
 
-      <%= f.select :category, "", include_blank: "Any Category", selected: params[:category],
+      <%= f.select :category, @link_categories, include_blank: "Any Category", selected: params[:category],
                    class: "" %>
     <% end %>
   </div>
 </div>
 
-<div class="h-screen flex items-center justify-center">
-  <div class="grid grid-cols-3 gap-4">
-    <% @links.each do |link| %>
-      <div class="rounded-md w-72 min-h-[10rem] overflow-hidden shadow-lg">
-        <img
-          alt="Home"
-          src="<%= link.image_url %>"
-          class="h-56 w-full object-cover" />
+<%= turbo_frame_tag "results" do %>
+  <div class="flex justify-center">
+    <div class="grid grid-cols-3 gap-4">
+      <% @links.each do |link| %>
+        <div class="rounded-md w-72 overflow-hidden shadow-lg">
+          <img
+            alt="Home"
+            src="<%= link.image_url %>"
+            class="h-56 w-full object-cover" />
 
-        <div class="p-4">
-          <div class="mt-2 font-medium">
-            <%= link.title %>
-          </div>
+          <div class="p-4">
+            <div class="mt-2 font-medium">
+              <%= link.title %>
+            </div>
 
-          <div class="text-sm text-gray-500">
-            <%= link_host(link.url) %>
+            <div class="text-sm text-gray-500">
+              <%= link_host(link.url) %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
+
 
 <div id="popup-modal" tabindex="-1" class="fixed flex hidden justify-center items-center right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full bg-opacity-50 bg-gray-900">
   <div class="relative w-full h-full max-w-md md:h-auto">
