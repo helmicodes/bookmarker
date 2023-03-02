@@ -9,3 +9,12 @@ application.register("hello", HelloController)
 
 import FormController from "./form_controller.js"
 application.register("form", FormController)
+
+import ModalController from "./modal_controller.js"
+application.register("modal", ModalController)
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        document.getElementById("popup-modal").classList.add("hidden")
+    }
+})
