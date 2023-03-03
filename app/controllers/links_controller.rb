@@ -33,7 +33,7 @@ class LinksController < ApplicationController
         format.turbo_stream
         format.html { redirect_to links_url }
       else
-        format.html { redirect_to links_url, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end

@@ -18,3 +18,9 @@ document.addEventListener("keydown", (event) => {
         document.getElementById("popup-modal").classList.add("hidden")
     }
 })
+
+document.addEventListener("turbo:before-stream-render", ((event) => {
+    if(!document.getElementById("popup-modal").classList.contains("hidden")) {
+        document.getElementById("popup-modal").classList.add("hidden")
+    }
+}))

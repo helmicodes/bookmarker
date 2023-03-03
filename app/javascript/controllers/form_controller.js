@@ -8,6 +8,6 @@ export default class extends Controller {
   }
 
   submit() {
-    this.element.requestSubmit();
+    this.element.requestSubmit()
   }
 }

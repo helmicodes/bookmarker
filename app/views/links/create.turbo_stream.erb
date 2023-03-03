@@ -1,3 +1,7 @@
 <%= turbo_stream.prepend "links", @link %>
 
+<%= turbo_stream.update "new_link" do %>
+  <%= render "form" %>
+<% end %>
+
 <%#= render_flash_stream %>

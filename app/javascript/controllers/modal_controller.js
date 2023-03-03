@@ -6,6 +6,7 @@ export default class extends Controller {
 
   open() {
     this.popupTarget.classList.remove("hidden")
+    document.getElementById("link_url").focus()
   }
 
   close() {
