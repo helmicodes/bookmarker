@@ -31,6 +31,8 @@ class LinksController < ApplicationController
         # format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
         # format.json { render :show, status: :created, location: @link }
 
+        @new_link = Link.new
+
         format.turbo_stream
         format.html { redirect_to links_url }
       else
