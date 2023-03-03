@@ -1,7 +1,7 @@
 <h1>New link</h1>
 
 <%= turbo_frame_tag "new_link" do %>
-  <%= render "form", link: @link %>
+  <%= render partial: "form", locals: { link: @link } %>
 <% end %> %>
 
 <br>

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.field-with-errors input,
+.field-with-errors text,
+.field-with-errors textarea,
+.field-with-errors select {
+    @apply border-red-300;
+}
+
+.field-with-errors .error {
+    @apply block text-red-700 text-sm;
+}

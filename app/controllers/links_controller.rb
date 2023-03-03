@@ -4,6 +4,7 @@ class LinksController < ApplicationController
 
   # GET /links or /links.json
   def index
+    @link = Link.new
     @links = Link.search(params)
     @link_categories = Link.pluck(:category).uniq.compact
   end

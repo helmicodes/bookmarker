@@ -19,7 +19,7 @@
             </button>
             <div class="p-6">
               <%= turbo_frame_tag "new_link" do %>
-                <%= render "form" %>
+                <%= render "form", link: @link %>
               <% end %>
             </div>
           </div>

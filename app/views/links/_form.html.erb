@@ -1,11 +1,12 @@
-<form action="/links" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Paste a URL here to save it for later:</label>
+<%= form_with(model: link) do |f| %>
+  <%= f.label :url, "Paste a URL here to save it for later:" %>
+
   <div class="flex justify-between gap-2 mt-2">
-    <input type="text" placeholder="https://..." name="link[url]" id="link_url"
-           class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
-    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg inline-flex items-center">
-      Save
-    </button>
+    <div class="w-full">
+      <%= f.text_field :url, placeholder: "https://...", class: "w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" %>
+    </div>
+    <div>
+      <%= f.submit "Save", class: "bg-blue-500 text-white py-2 px-4 rounded-lg inline-flex items-center" %>
+    </div>
   </div>
-</form>
+  <% end %>

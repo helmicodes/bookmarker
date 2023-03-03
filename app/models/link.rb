@@ -7,7 +7,7 @@ class Link < ApplicationRecord
     where(category: category) if category.present?
   }
 
-  validates :url, presence: true, format: { with: URI.regexp }
+  validates :url, presence: true, format: { with: URI.regexp, message: "invalid" }
 
   def self.search(params={})
     self.with_name(params[:title])
