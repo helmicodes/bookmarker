@@ -1,12 +1,16 @@
-<div id="<%= dom_id link %>">
-  <p>
-    <strong>Url:</strong>
-    <%= link.url %>
-  </p>
+<div class="rounded-md w-72 overflow-hidden shadow-lg">
+  <img
+    alt="Home"
+    src="<%= link.image_url %>"
+    class="h-56 w-full object-cover" />
 
-  <p>
-    <strong>Category:</strong>
-    <%= link.category %>
-  </p>
+  <div class="p-4">
+    <div class="mt-2 font-medium">
+      <%= link.title %>
+    </div>
 
+    <div class="text-sm text-gray-500">
+      <%= link_host(link.url) %>
+    </div>
+  </div>
 </div>

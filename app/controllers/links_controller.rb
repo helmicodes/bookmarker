@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   # GET /links or /links.json
   def index
     @links = Link.search(params)
-    @link_categories = Link.pluck(:category).uniq
+    @link_categories = Link.pluck(:category).uniq.compact
   end
 
   # GET /links/1 or /links/1.json
@@ -27,11 +27,13 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
-        format.json { render :show, status: :created, location: @link }
+        # format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
+        # format.json { render :show, status: :created, location: @link }
+
+        format.turbo_stream
+        format.html { redirect_to links_url }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        format.html { redirect_to links_url, status: :unprocessable_entity }
       end
     end
   end

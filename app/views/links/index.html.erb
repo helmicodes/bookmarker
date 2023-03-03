@@ -18,13 +18,17 @@
               <span class="sr-only">Close modal</span>
             </button>
             <div class="p-6">
-              <label>Paste a URL here to save it for later:</label>
-              <div class="flex justify-between gap-2 mt-2">
-                <input class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" type="text" placeholder="https://...">
-                <button class="bg-blue-500 text-white py-2 px-4 rounded-lg inline-flex items-center">
-                  Save
-                </button>
-              </div>
+              <form action="/links" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label>Paste a URL here to save it for later:</label>
+                <div class="flex justify-between gap-2 mt-2">
+                  <input type="text" placeholder="https://..." name="link[url]" id="link_url"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
+                  <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg inline-flex items-center">
+                    Save
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -52,24 +56,9 @@
 
 <%= turbo_frame_tag "results" do %>
   <div class="flex justify-center">
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-3 gap-4" id="links">
       <% @links.each do |link| %>
-        <div class="rounded-md w-72 overflow-hidden shadow-lg">
-          <img
-            alt="Home"
-            src="<%= link.image_url %>"
-            class="h-56 w-full object-cover" />
-
-          <div class="p-4">
-            <div class="mt-2 font-medium">
-              <%= link.title %>
-            </div>
-
-            <div class="text-sm text-gray-500">
-              <%= link_host(link.url) %>
-            </div>
-          </div>
-        </div>
+        <%= render "link", link: link %>
       <% end %>
     </div>
   </div>
