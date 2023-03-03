@@ -13,7 +13,6 @@ export default class extends Controller {
   }
 
   handleClickOutside(event) {
-    console.log(event.target.id === "popup-modal")
     if (event.target.id === "popup-modal") {
       this.close()
     }
