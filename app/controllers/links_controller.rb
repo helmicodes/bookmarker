@@ -35,6 +35,8 @@ class LinksController < ApplicationController
 
         format.turbo_stream
         format.html { redirect_to links_url }
+
+        # flash.now[:notice] = "Saved"
       else
         format.html { render :new, status: :unprocessable_entity }
       end

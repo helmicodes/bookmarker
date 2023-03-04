@@ -24,3 +24,6 @@ document.addEventListener("turbo:before-stream-render", ((event) => {
         document.getElementById("popup-modal").classList.add("hidden")
     }
 }))
+
+import FlashController from "./flash_controller.js"
+application.register("flash", FlashController)

@@ -12,3 +12,32 @@
 .field-with-errors .error {
     @apply block text-red-700 text-sm;
 }
+
+.flashes {
+    @apply relative;
+}
+
+.flash {
+    @apply absolute top-0 right-0 text-center text-sm px-4 py-2 font-medium;
+}
+
+.flash .notice,
+.flash .success {
+     @apply bg-blue-200 text-blue-900;
+}
+
+.flash .error,
+.flash .alert {
+     @apply bg-red-300 text-red-900;
+ }
+
+@keyframes fade-in-and-out {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    25%,
+    75% {
+        opacity: 1;
+    }
+}
