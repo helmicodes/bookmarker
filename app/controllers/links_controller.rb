@@ -24,7 +24,12 @@ class LinksController < ApplicationController
 
   # POST /links or /links.json
   def create
-    @link = Link.new(link_params)
+    @link = Link.new(
+      url: params[:link][:url],
+      title: link_title,
+      image_url: link_image_url,
+      category: link_category
+    )
 
     respond_to do |format|
       if @link.save
@@ -67,13 +72,27 @@ class LinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_link
-      @link = Link.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def link_params
-      params.require(:link).permit(:url, :category)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_link
+    @link = Link.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def link_params
+    params.require(:link).permit(:url)
+  end
+
+  def link_category
+    return "Videos" if URI(params[:link][:url]).host.include?("youtube") || URI(params[:link][:url]).host.include?("vimeo")
+    "Articles"
+  end
+
+  def link_title
+    Mechanize.new.get(params[:link][:url]).title
+  end
+
+  def link_image_url
+    Mechanize.new.get(params[:link][:url]).at('meta[property="og:image"]')&.[]('content')
+  end
 end
