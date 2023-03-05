@@ -1,6 +1,9 @@
-<div class="flashes">
-  <% flash.each do |type, message| %>
-    <%= content_tag(:div, message, class: "flash #{type}",
-          data: { controller: "flash" }) %>
-  <% end %>
-</div>
+<% flash.each do |type, message| %>
+  <div role="alert" data-controller="flash" class="flash <%= type %> animate-flash rounded-xl p-4 shadow-xl">
+    <div class="flex items-start gap-4">
+      <div class="flex-1">
+        <strong class="block font-medium text-white"> <%= message %> </strong>
+      </div>
+    </div>
+  </div>
+<% end %>

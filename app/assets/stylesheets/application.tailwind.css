@@ -13,31 +13,22 @@
     @apply block text-red-700 text-sm;
 }
 
-.flashes {
-    @apply relative;
-}
-
 .flash {
-    @apply absolute top-0 right-0 text-center text-sm px-4 py-2 font-medium;
+    @apply absolute top-20 right-5 text-center text-sm px-4 py-2 font-medium;
 }
 
-.flash .notice,
-.flash .success {
-     @apply bg-blue-200 text-blue-900;
+.notice {
+    @apply bg-green-500;
 }
 
-.flash .error,
-.flash .alert {
-     @apply bg-red-300 text-red-900;
- }
+.success {
+    @apply bg-green-500;
+}
 
-@keyframes fade-in-and-out {
-    0%,
-    100% {
-        opacity: 0;
-    }
-    25%,
-    75% {
-        opacity: 1;
-    }
+.error {
+    @apply bg-red-500;
+}
+
+.alert {
+    @apply bg-red-500;
 }
