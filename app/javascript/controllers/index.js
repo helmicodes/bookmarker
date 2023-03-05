@@ -27,3 +27,6 @@ document.addEventListener("turbo:before-stream-render", ((event) => {
 
 import FlashController from "./flash_controller.js"
 application.register("flash", FlashController)
+
+import ButtonController from "./button_controller.js"
+application.register("button", ButtonController)
