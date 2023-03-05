@@ -14,7 +14,7 @@
 }
 
 .flash {
-    @apply absolute top-20 right-5 text-center text-sm px-4 py-2 font-medium;
+    @apply fixed bottom-5 left-5 text-center text-sm px-4 py-2 font-medium;
 }
 
 .notice {
