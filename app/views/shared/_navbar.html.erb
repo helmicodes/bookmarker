@@ -13,7 +13,7 @@
       <div class="flex items-center gap-4">
         <% if signed_in? %>
           <div class="sm:flex sm:gap-4">
-            <%= button_to "Logout", session_path, method: :delete, class: "hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-500 sm:block" %>
+            <%= button_to "Logout", session_path, method: :delete, class: "rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-500 sm:block" %>
           </div>
         <% else %>
           <div class="sm:flex sm:gap-4">
