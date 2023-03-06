@@ -5,8 +5,8 @@ class LinksController < ApplicationController
   # GET /links or /links.json
   def index
     @link = Link.new
-    @links = Link.search(params)
-    @link_categories = Link.pluck(:category).uniq.compact
+    @links = current_user.links.search(params)
+    @link_categories = current_user.links.pluck(:category).uniq.compact
   end
 
   # GET /links/1 or /links/1.json
@@ -28,7 +28,8 @@ class LinksController < ApplicationController
       url: params[:link][:url],
       title: link_title,
       image_url: link_image_url,
-      category: link_category
+      category: link_category,
+      user_id: current_user.id
     )
 
     respond_to do |format|
