@@ -17,18 +17,18 @@
     @apply fixed bottom-5 left-5 text-center text-sm px-4 py-2 font-medium;
 }
 
-.notice {
+.flash .notice {
     @apply bg-green-500;
 }
 
-.success {
+.flash .success {
     @apply bg-green-500;
 }
 
-.error {
+.flash .error {
     @apply bg-red-500;
 }
 
-.alert {
+.flash .alert {
     @apply bg-red-500;
 }
