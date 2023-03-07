@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="justify-self-end">
+    <div class="md:justify-self-end w-max">
       <%= form_with(url: links_path, method: :get,
                     data: {
                       turbo_frame: "results",
@@ -41,11 +41,11 @@
                     }) do |f| %>
 
         <%= f.search_field :title, placeholder: 'Search', value: params[:title],
-                           class: "" %>
+                           class: "w-1/2" %>
 
 
         <%= f.select :category, @link_categories, include_blank: "Any Category", selected: params[:category],
-                     class: "" %>
+                     class: "w-1/2" %>
       <% end %>
     </div>
   </div>
