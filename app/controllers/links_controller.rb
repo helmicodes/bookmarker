@@ -26,16 +26,16 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(
       url: params[:link][:url],
-      title: link_title,
-      image_url: link_image_url,
-      category: link_category,
       user_id: current_user.id
     )
 
     respond_to do |format|
       if @link.save
-        # format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
-        # format.json { render :show, status: :created, location: @link }
+        @link.update(
+          title: link_title,
+          image_url: link_image_url,
+          category: link_category
+        )
 
         @new_link = Link.new
 

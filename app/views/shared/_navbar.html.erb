@@ -12,8 +12,8 @@
 
       <div class="flex items-center gap-4">
         <% if signed_in? %>
+          <div class="self-center"><%= current_user.username %></div>
           <div class="sm:flex sm:gap-4">
-            <div class="self-center"><%= current_user.username %></div>
             <%= button_to "Logout", session_path, method: :delete, class: "rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-500 sm:block" %>
           </div>
         <% else %>

@@ -41,7 +41,7 @@
                     }) do |f| %>
 
         <%= f.search_field :title, placeholder: 'Search', value: params[:title],
-                           class: "w-1/2" %>
+                           class: "w-1/2 md:w-max" %>
 
 
         <%= f.select :category, @link_categories, include_blank: "Any Category", selected: params[:category],
