@@ -1,5 +1,3 @@
-<%= turbo_stream.prepend "links", @link %>
-
 <%= turbo_stream.update "new_link" do %>
   <%= render "form", link: @new_link %>
 <% end %>

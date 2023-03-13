@@ -51,6 +51,8 @@
   </div>
 </div>
 
+<%= turbo_stream_from "links" %>
+
 <%= turbo_frame_tag "results" do %>
   <div class="flex justify-center">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3 px-4" id="links">

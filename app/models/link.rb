@@ -9,6 +9,10 @@ class Link < ApplicationRecord
 
   validates :url, presence: true, format: { with: URI.regexp, message: "invalid" }
 
+  after_update_commit -> {
+    broadcast_prepend_later_to "links", target: "links", locals: { link: self }, partial: "links/link"
+  }
+
   def self.search(params={})
     self.with_name(params[:title])
         .with_category(params[:category])

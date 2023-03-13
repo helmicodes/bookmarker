@@ -31,18 +31,12 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        @link.update(
-          title: link_title,
-          image_url: link_image_url,
-          category: link_category
-        )
-
+        UpdateLinkDataJob.perform_later(@link)
         @new_link = Link.new
 
+        flash.now[:notice] = "Saved"
         format.turbo_stream
         format.html { redirect_to links_url }
-
-        flash.now[:notice] = "Saved"
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -79,18 +73,5 @@ class LinksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def link_params
     params.require(:link).permit(:url)
-  end
-
-  def link_category
-    return "Videos" if URI(params[:link][:url]).host.include?("youtube") || URI(params[:link][:url]).host.include?("vimeo")
-    "Articles"
-  end
-
-  def link_title
-    Mechanize.new.get(params[:link][:url]).title
-  end
-
-  def link_image_url
-    Mechanize.new.get(params[:link][:url]).at('meta[property="og:image"]')&.[]('content')
   end
 end
