@@ -69,4 +69,4 @@ group :test do
 end
 
 gem "mechanize", "~> 2.8"
-gem "sidekiq", "< 6"
+# gem "sidekiq", "< 6"
