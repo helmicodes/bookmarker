@@ -5,10 +5,12 @@ Pocket clone, built using cutting-edge Hotwire technology.
 Tech:
 - Ruby on Rails
 - Hotwire
+- TailwindCSS
 - Stimulus
 - Sidekiq
 - Redis
 - Render
+- Minitest
 
 Users can:
 - Sign up 
