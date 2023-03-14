@@ -1,0 +1,7 @@
+first:
+  username: "helmi"
+  password_digest: <%= BCrypt::Password.create("password") %>
+
+second:
+  username: "joe"
+  password_digest: "password"
