@@ -3,9 +3,11 @@ first:
   category: "Videos"
   title: "Vimeo – Video Experience Platform"
   image_url: "https://i.vimeocdn.com/custom_asset/0c9523e3e65b7f4f7dc38a2aa013ca3c.jpg"
+  user: first
 
 second:
   url: "https://vimeo.com"
   category: "Videos"
   title: "Vimeo – Video Experience Platform"
   image_url: "https://i.vimeocdn.com/custom_asset/0c9523e3e65b7f4f7dc38a2aa013ca3c.jpg"
+  user: first

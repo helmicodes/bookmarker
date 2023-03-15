@@ -13,6 +13,8 @@ class Link < ApplicationRecord
     broadcast_prepend_later_to "links", target: "links", locals: { link: self }, partial: "links/link"
   }
 
+  belongs_to :user
+
   def self.search(params={})
     self.with_name(params[:title])
         .with_category(params[:category])

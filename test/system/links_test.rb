@@ -1,14 +1,6 @@
 require "application_system_test_case"
 
 class LinkTest < ApplicationSystemTestCase
-  setup do
-    @first_link = links(:first)
-    @second_link = links(:second)
-
-    @first_link.update(user_id: users(:first).id)
-    @second_link.update(user_id: users(:first).id)
-  end
-
   test "sign in" do
     sign_in
     assert current_url, "/links"
