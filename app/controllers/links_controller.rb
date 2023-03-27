@@ -1,3 +1,5 @@
+include Pagy::Backend
+
 class LinksController < ApplicationController
   before_action :require_signin
   before_action :set_link, only: %i[ show edit update destroy ]
@@ -5,8 +7,9 @@ class LinksController < ApplicationController
   # GET /links or /links.json
   def index
     @link = Link.new
-    @links = current_user.links.search(params)
     @link_categories = current_user.links.pluck(:category).uniq.compact
+    @links = current_user.links.search(params)
+    @pagy, @links = pagy(@links)
   end
 
   # GET /links/1 or /links/1.json

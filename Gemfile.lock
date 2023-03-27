@@ -151,6 +151,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    pagy (6.0.2)
     pg (1.4.5)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -251,6 +252,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   mechanize (~> 2.8)
+  pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)

@@ -70,3 +70,5 @@ end
 
 gem "mechanize", "~> 2.8"
 # gem "sidekiq", "< 6"
+
+gem "pagy", "~> 6.0"
